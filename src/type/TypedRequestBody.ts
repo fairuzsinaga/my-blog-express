@@ -1,5 +1,5 @@
 interface TypedRequestBody<T> extends Express.Request {
-  body: T
+  body: T;
 }
 
-export default TypedRequestBody
+export default TypedRequestBody;
