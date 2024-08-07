@@ -12,12 +12,12 @@ const AuthRoutes = express();
 
 AuthRoutes.post(
   "/login",
-  (req: TypedRequestBody<LoginRequestType>, res: Response) => {
-    const body = req.body;
-    res.status(200).send({
-      email: body.email,
-      password: body.password,
-    });
+  (
+    req: TypedRequestBody<LoginRequestType>,
+    res: Response,
+    next: NextFunction
+  ) => {
+    AuthController.login(req, res, next);
   }
 );
 
@@ -32,5 +32,8 @@ AuthRoutes.post(
     await AuthController.register(req, res, next);
   }
 );
+
+AuthRoutes.get("/me", AuthController.me);
+AuthRoutes.get("/logout", AuthController.logout);
 
 export default AuthRoutes;

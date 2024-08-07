@@ -1,25 +1,19 @@
-
-
 type LoginRequestType = {
-  email: String,
-  password: String
-}
+  email: string;
+  password: string;
+};
 
 type CreateUserType = {
-  email: String,
-  name: String,
-  password: String,
-  created_at?: Date | undefined
-}
+  email: string;
+  name: string;
+  password: string;
+  created_at?: Date | undefined;
+};
 
 type UserResponse = {
-  email: String,
-  name: String,
-  created_at: Date | undefined | String
-}
-
-export {
-  LoginRequestType,
-  CreateUserType,
-  UserResponse
+  email: string;
+  name: string;
+  created_at: Date | undefined | string;
 };
+
+export { LoginRequestType, CreateUserType, UserResponse };

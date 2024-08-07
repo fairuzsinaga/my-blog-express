@@ -1,6 +1,7 @@
 import { Prisma, PrismaClient } from "@prisma/client";
-import { UserResponse } from "../type/User";
+import { LoginRequestType, UserResponse } from "../type/User";
 import bcrypt from "bcrypt";
+import TypedRequestBody from "../type/TypedRequestBody";
 
 const userTable = new PrismaClient().user;
 
@@ -29,6 +30,23 @@ class UserModel {
       },
     });
     return count;
+  }
+
+  static async validateLogin(
+    req: TypedRequestBody<LoginRequestType>
+  ): Promise<UserResponse | false> {
+    const user = await userTable.findFirst({
+      where: {
+        email: req.body.email,
+      },
+    });
+
+    const password = user?.password ?? "";
+
+    if (bcrypt.compareSync(req.body.password, password)) {
+      return this.toUserResponse(user as Prisma.UserCreateInput);
+    }
+    return false;
   }
 }
 
