@@ -1,9 +1,9 @@
 import { NextFunction, Request, Response } from "express";
 import UserService from "../services/user.service";
-import TypedRequestBody from "../type/TypedRequestBody";
+import TypedRequestBody from "../type/typed-request-body.type";
 import { Prisma } from "@prisma/client";
-import UserModel from "../models/UserModel";
-import { LoginRequestType } from "../type/User";
+import UserModel from "../models/user.model";
+import { LoginRequestType } from "../type/user.type";
 import jwt from "jsonwebtoken";
 import { StatusCodes } from "http-status-codes";
 import { serialize } from "cookie";

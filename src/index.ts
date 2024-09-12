@@ -2,9 +2,9 @@ import express, { Request, Response, json } from "express";
 import dotenv from "dotenv";
 import AuthRoutes from "./routes/auth";
 import ZodValidation from "./middlewares/zod.middleware";
-import ErrorHandler from "./middlewares/errorHandler.middleware";
-import adminRoutes from "./routes/admin/adminRoutes";
-import isAuthenticatedMiddleware from "./middlewares/isAuthenticated.middleware";
+import ErrorHandler from "./middlewares/error-handler.middleware";
+import adminRoutes from "./routes/admin/admin-routes";
+import isAuthenticatedMiddleware from "./middlewares/is-authenticated.middleware";
 import cookieParser from "cookie-parser";
 
 dotenv.config();

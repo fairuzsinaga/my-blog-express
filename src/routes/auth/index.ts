@@ -1,9 +1,9 @@
 import express, { NextFunction, Request, Response } from "express";
-import TypedRequestBody from "../../type/TypedRequestBody";
-import { LoginRequestType } from "../../type/User";
+import TypedRequestBody from "../../type/typed-request-body.type";
+import { LoginRequestType } from "../../type/user.type";
 import { Prisma } from "@prisma/client";
 import UserService from "../../services/user.service";
-import { registerUserSchema } from "../../request/userSchema.request";
+import { registerUserSchema } from "../../request/user-schema.request";
 import { ZodError } from "zod";
 import ZodValidation from "../../middlewares/zod.middleware";
 import { AuthController } from "../../controllers/auth.controller";

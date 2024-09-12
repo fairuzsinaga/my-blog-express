@@ -1,7 +1,7 @@
 import { Prisma, PrismaClient } from "@prisma/client";
-import { LoginRequestType, UserResponse } from "../type/User";
+import { LoginRequestType, UserResponse } from "../type/user.type";
 import bcrypt from "bcrypt";
-import TypedRequestBody from "../type/TypedRequestBody";
+import TypedRequestBody from "../type/typed-request-body.type";
 
 const userTable = new PrismaClient().user;
 
